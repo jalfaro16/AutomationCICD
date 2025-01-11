@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-01-08T20:00:06 CST" name="Default suite" finished-at="2025-01-08T20:00:32 CST" duration-ms="26041">
+    <groups>
+      <group name="ErrorHandling">
+        <method signature="ErrorValidation.LoginErrorValidation()[pri:0, instance:JavaSeleniumTest.temp1.ErrorValidation@6aba2b86]" name="LoginErrorValidation" class="JavaSeleniumTest.temp1.ErrorValidation"/>
+      </group> <!-- ErrorHandling -->
+    </groups>
+    <test started-at="2025-01-08T20:00:06 CST" name="Default test" finished-at="2025-01-08T20:00:32 CST" duration-ms="26041">
+      <class name="JavaSeleniumTest.temp1.ErrorValidation">
+        <test-method is-config="true" signature="launchApp()[pri:0, instance:JavaSeleniumTest.temp1.ErrorValidation@6aba2b86]" started-at="2025-01-08T20:00:06 CST" name="launchApp" finished-at="2025-01-08T20:00:16 CST" duration-ms="9309" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApp -->
+        <test-method signature="LoginErrorValidation()[pri:0, instance:JavaSeleniumTest.temp1.ErrorValidation@6aba2b86]" started-at="2025-01-08T20:00:16 CST" name="LoginErrorValidation" finished-at="2025-01-08T20:00:16 CST" duration-ms="536" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LoginErrorValidation -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:JavaSeleniumTest.temp1.ErrorValidation@6aba2b86]" started-at="2025-01-08T20:00:16 CST" name="tearDown" finished-at="2025-01-08T20:00:17 CST" duration-ms="572" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApp()[pri:0, instance:JavaSeleniumTest.temp1.ErrorValidation@6aba2b86]" started-at="2025-01-08T20:00:17 CST" name="launchApp" finished-at="2025-01-08T20:00:24 CST" duration-ms="7023" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApp -->
+        <test-method signature="ProductErrorValidation()[pri:0, instance:JavaSeleniumTest.temp1.ErrorValidation@6aba2b86]" started-at="2025-01-08T20:00:24 CST" name="ProductErrorValidation" finished-at="2025-01-08T20:00:32 CST" duration-ms="8025" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ProductErrorValidation -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:JavaSeleniumTest.temp1.ErrorValidation@6aba2b86]" started-at="2025-01-08T20:00:32 CST" name="tearDown" finished-at="2025-01-08T20:00:32 CST" duration-ms="551" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- JavaSeleniumTest.temp1.ErrorValidation -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

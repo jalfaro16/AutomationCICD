@@ -27,7 +27,7 @@ import JavaSeleniumTest.temp1.TestComponents.BaseTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Test4 extends BaseTest {
-	String productName = "ADIDAS ORIGINAL";	
+	String productName = "IPHONE 13";	
 	
 	@Test(dataProvider="getData",groups= {"Purshase"})
 	public void submitOrder(HashMap<String,String>input) throws IOException
@@ -70,21 +70,7 @@ public class Test4 extends BaseTest {
 	@DataProvider
 	public Object[][] getData() throws IOException
 	{
-		/**HashMap<String,String> map = new HashMap<String,String>();
-		map.put("password","Iamking@000");
-		map.put("username","anshika@gmail.com");
-		map.put("productname","IPHONE 13 PRO");
-		map.put("country","India");
-
-		HashMap<String,String> map2 = new HashMap<String,String>();
-		map2.put("password","Iamking@000");
-		map2.put("username","shetty@gmail.com");
-		map2.put("productname","ADIDAS ORIGINAL");
-		map2.put("country","India");
-		return new Object[][] {{map},{map2} };
-		//return new Object[][] {{"anshika@gmail.com","Iamking@000","IPHONE 13 PRO","India"}
-		//,{"anshika@gmail.com","Iamking@000","ADIDAS ORIGINAL","India"}};
-		*/
+	
 		List<HashMap<String, String>> data = getJsonDataToMap(System.getProperty
 				("user.dir")+
 				"//src//test//java//JavaSeleniumTest//data//PurshaseOrder.json");

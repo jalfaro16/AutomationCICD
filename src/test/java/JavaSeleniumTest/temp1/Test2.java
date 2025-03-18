@@ -32,7 +32,7 @@ public class Test2 {
 	
 	///Login//**
 	LandingPage landingPage = new LandingPage(driver);
-	landingPage.goTo();
+	landingPage.goTo("https://rahulshettyacademy.com/client");
 	//landingPage.loginApp("anshika@gmail.com","Iamking@000");
 	 
 	//Check initial list//**

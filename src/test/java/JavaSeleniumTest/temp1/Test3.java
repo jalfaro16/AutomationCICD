@@ -30,7 +30,7 @@ public class Test3 {
 	//driver.manage().window().maximize();
 	
 	LandingPage landingPage = new LandingPage(driver);
-	landingPage.goTo();
+	landingPage.goTo("https://rahulshettyacademy.com/client");
 	ProductCatalog prodCat = landingPage.loginApp("anshika@gmail.com","Iamking@000");
 	List<WebElement> products = prodCat.getProductList();	
 	//Search and select desire product//** Add product to Cart

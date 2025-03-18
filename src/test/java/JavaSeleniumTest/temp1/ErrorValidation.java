@@ -18,7 +18,6 @@ public class ErrorValidation extends BaseTest{
 	public void LoginErrorValidation()
 	{
 		String Expected_msg = "Incorrect email or password.";
-		//String productName = "IPHONE 13 PR";
 		landingPage.loginApp("anshika@gmail.com","Iamking@0");
 		
 		Assert.assertEquals(Expected_msg, landingPage.getErrorMsg());

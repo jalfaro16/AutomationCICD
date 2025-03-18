@@ -36,11 +36,11 @@ public class Utilities {
 				.visibilityOfElementLocated(findBy));
 	}
 
-	public void waitForWebElementToAppear(WebElement findBy)
+	public WebElement waitForWebElementToAppear(By locator)
 	{
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
-		wait.until(ExpectedConditions
-				.visibilityOf(findBy));
+		return wait.until(ExpectedConditions
+				.visibilityOfElementLocated(locator));
 	}
     public void waitForElementToDisappear(WebElement ele)
 	{

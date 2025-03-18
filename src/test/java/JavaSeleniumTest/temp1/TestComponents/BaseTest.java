@@ -31,6 +31,7 @@ public class BaseTest {
 	
 	public WebDriver driver;
 	public LandingPage landingPage;
+	private String urlName;
 	
 	public WebDriver initializerDriver() throws IOException
 	{
@@ -44,8 +45,8 @@ public class BaseTest {
 		String browserName = System
 				.getProperty("browser")!=null ? System
 						.getProperty("browser"):prop.getProperty("browser"); 
-		
-		//String browserName = prop.getProperty("browser");
+		urlName = System.getProperty("url")!=null ? System
+				.getProperty("url"):prop.getProperty("url");
 		
 		if(browserName.contains("chrome"))
 		{
@@ -85,12 +86,17 @@ public class BaseTest {
 		return data;
 	}
 	
+	// Add a getter method for urlName
+    public String getUrlName() {
+        return urlName;
+    }
+	
 	@BeforeMethod(alwaysRun=true)
 	public LandingPage launchApp() throws IOException
 	{
 		driver = initializerDriver();
 		landingPage = new LandingPage(driver);
-		landingPage.goTo();
+		landingPage.goTo(getUrlName());
 		return landingPage;
 	}
 

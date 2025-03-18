@@ -27,7 +27,7 @@ import JavaSeleniumTest.temp1.TestComponents.BaseTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Test4 extends BaseTest {
-	String productName = "IPHONE 13";	
+	String productName = "IPHONE 13 PRO";	
 	
 	@Test(dataProvider="getData",groups= {"Purshase"})
 	public void submitOrder(HashMap<String,String>input) throws IOException
@@ -57,15 +57,15 @@ public class Test4 extends BaseTest {
 	//driver.close();
     }
 	
-	@Test(dependsOnMethods={"submitOrder"})
-	public void OrderHistory()
-	{
-		ProductCatalog prodCat = landingPage
-				.loginApp("shetty@gmail.com","Iamking@000");
-		OrderPage ordersPage = prodCat.goToOrderPage();
-		Assert.assertTrue(ordersPage.VerifyOrderDisplay(productName));
-	    //It was just some water after the rain
-}
+	//@Test(dependsOnMethods={"submitOrder"})
+		@Test
+		public void OrderHistory()
+		{
+			ProductCatalog prodCat = landingPage
+					.loginApp("shetty@gmail.com","Iamking@000");
+			OrderPage ordersPage = prodCat.goToOrderPage();
+			Assert.assertTrue(ordersPage.VerifyOrderDisplay(productName));
+		}
 	
 	@DataProvider
 	public Object[][] getData() throws IOException

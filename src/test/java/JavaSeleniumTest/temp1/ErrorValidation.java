@@ -14,7 +14,7 @@ import JavaSeleniumTest.temp1.TestComponents.Retry;
 
 public class ErrorValidation extends BaseTest{
 	
-	@Test(groups= {"ErrorHandling"},retryAnalyzer=Retry.class)
+	@Test(groups= {"Purshase"},retryAnalyzer=Retry.class)
 	public void LoginErrorValidation()
 	{
 		String Expected_msg = "Incorrect email or password.";
@@ -24,7 +24,7 @@ public class ErrorValidation extends BaseTest{
 		Assert.assertEquals(Expected_msg, landingPage.getErrorMsg());
 	}
 	
-	@Test
+	@Test(groups= {"ErrorVerification"})
 	public void ProductErrorValidation()
 	{
 		String productName = "IPHONE 13 PRO";	

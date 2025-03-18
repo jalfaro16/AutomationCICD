@@ -11,46 +11,35 @@ import AbstractComponents.Utilities;
 public class LandingPage extends Utilities {
 
 	WebDriver driver;
+	// Define locators using By
+    private By usernameField = By.id("userEmail");
+    private By passwordField = By.id("userPassword");
+    private By loginButton = By.id("login");
+    private By errorMsg = By.cssSelector("[class*='flyInOut']");
 	
 	public LandingPage(WebDriver driver)
 	{
 		super(driver);
 		this.driver=driver;
-		PageFactory.initElements(driver, this);
 	}
-	
-	//WebElement userEmail = driver.findElement(By.id("useremail"));
-	//Page FACTORY
-	
-	@FindBy(id="userEmail")
-	WebElement userEmail;
-	
-	@FindBy(id="userPassword")
-	WebElement passwordF;
-	
-	@FindBy(id="login")
-	WebElement submit;
-	
-	@FindBy(css="[class*='flyInOut']")
-	WebElement errorMsg;
 	
 	public ProductCatalog loginApp(String email, String password)
 	{
-		userEmail.sendKeys(email);
-		passwordF.sendKeys(password);
-		submit.click();
+		driver.findElement(usernameField).sendKeys(email);
+		driver.findElement(passwordField).sendKeys(password);
+		driver.findElement(loginButton).click();
 		ProductCatalog prodCat = new ProductCatalog(driver);
 		return prodCat;
 	}
 	
-	public void goTo()
+	public void goTo(String url)
 	{
-		driver.get("https://rahulshettyacademy.com/client");
+		driver.get(url);
 	}
 	
 	public String getErrorMsg()
 	{
-		waitForWebElementToAppear(errorMsg);
-		return errorMsg.getText();
+		WebElement errorElement = waitForWebElementToAppear(errorMsg);
+	    return errorElement.getText();
 	}
 }

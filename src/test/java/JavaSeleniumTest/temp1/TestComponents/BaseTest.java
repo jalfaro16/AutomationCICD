@@ -32,21 +32,31 @@ public class BaseTest {
 	public WebDriver driver;
 	public LandingPage landingPage;
 	private String urlName;
+	private String product1;
+	private String confMsg; 
+	
+	//expectedConfMsg="THANKYOU FOR THE ORDER.";
+	//String productName = "IPHONE 13 PRO";	
+	
+	@BeforeMethod(alwaysRun=true)
+	public LandingPage launchApp() throws IOException
+	{
+		driver = initializerDriver();
+		landingPage = new LandingPage(driver);
+		landingPage.goTo(getUrlName());
+		return landingPage;
+	}
 	
 	public WebDriver initializerDriver() throws IOException
 	{
 		// properties class
 		Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream(System
-				.getProperty("user.dir")
-				+ "//src//main//java//Resources/GlobalData.properties");
-		prop.load(fis);
-		
-		String browserName = System
-				.getProperty("browser")!=null ? System
-						.getProperty("browser"):prop.getProperty("browser"); 
-		urlName = System.getProperty("url")!=null ? System
-				.getProperty("url"):prop.getProperty("url");
+		FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+ "//src//main//java//Resources/GlobalData.properties");
+		prop.load(fis);			
+		String browserName = System.getProperty("browser")!=null ? System.getProperty("browser"):prop.getProperty("browser"); 
+		urlName = System.getProperty("url")!=null ? System.getProperty("url"):prop.getProperty("url");
+		product1 = System.getProperty("productName")!=null ? System.getProperty("productName"):prop.getProperty("productName");
+		confMsg = System.getProperty("expectedConfMsg")!=null ? System.getProperty("expectedConfMsg"):prop.getProperty("expectedConfMsg");
 		
 		if(browserName.contains("chrome"))
 		{
@@ -56,7 +66,6 @@ public class BaseTest {
 		{
 			options.addArguments("headless");
 		}
-		
 		driver = new ChromeDriver(options);	
 		driver.manage().window().setSize(new Dimension(1440,900));
 		}
@@ -72,7 +81,6 @@ public class BaseTest {
 		}
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 		driver.manage().window().maximize();	
-		
 		return driver;
 	}
 	public List<HashMap<String, String>> getJsonDataToMap(String filePath) throws IOException
@@ -82,24 +90,29 @@ public class BaseTest {
 		//string to HashMap
 		ObjectMapper mapper = new ObjectMapper(); 
 		List<HashMap<String, String>> data = mapper.readValue(jsonContent, new TypeReference<List<HashMap<String, String>>>(){});
-	
 		return data;
 	}
 	
-	// Add a getter method for urlName
-    public String getUrlName() {
-        return urlName;
-    }
+	 public String getproductName()
+	 {
+	        try {
+				return product1;
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	       return product1 ;
+	 }
+	 public String getconfMsg()
+	 {
+		 return confMsg;
+	 }
 	
-	@BeforeMethod(alwaysRun=true)
-	public LandingPage launchApp() throws IOException
-	{
-		driver = initializerDriver();
-		landingPage = new LandingPage(driver);
-		landingPage.goTo(getUrlName());
-		return landingPage;
-	}
-
+     public String getUrlName()
+     {
+    	return urlName;
+     }
+    
 	@AfterMethod(alwaysRun=true)
 	public void tearDown()
 	{
@@ -111,10 +124,10 @@ public class BaseTest {
 		TakesScreenshot ts = (TakesScreenshot)driver; 
 		File source = ts.getScreenshotAs(OutputType.FILE);
 		File file = new File(System.getProperty("user.dir")+
-				"//reports//" + testCaseName + ".png");
+				"\\reports\\" + testCaseName + ".png");
 		FileUtils.copyFile(source, file);
 		return System.getProperty("user.dir")+
-				"//reports//" + testCaseName + ".png";
+				"\\reports\\" + testCaseName + ".png";
 	}
 	
 	

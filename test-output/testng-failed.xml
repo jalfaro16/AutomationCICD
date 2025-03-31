@@ -4,15 +4,16 @@
   <listeners>
     <listener class-name="JavaSeleniumTest.temp1.TestComponents.Listeners"/>
   </listeners>
-  <test thread-count="5" parallel="tests" name="ErrorValidation(failed)">
+  <test thread-count="5" parallel="tests" name="Test Test(failed)">
     <classes>
-      <class name="JavaSeleniumTest.temp1.ErrorValidation">
+      <class name="JavaSeleniumTest.temp1.Test4">
         <methods>
-          <include name="LoginErrorValidation"/>
           <include name="launchApp"/>
+          <include name="submitOrder" invocation-numbers="0 1"/>
+          <include name="setup"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- JavaSeleniumTest.temp1.ErrorValidation -->
+      </class> <!-- JavaSeleniumTest.temp1.Test4 -->
     </classes>
-  </test> <!-- ErrorValidation(failed) -->
+  </test> <!-- Test Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
